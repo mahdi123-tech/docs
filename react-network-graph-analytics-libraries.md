@@ -336,6 +336,321 @@ Best for: **Cross-platform (web + React Native) chart needs.**
 
 ---
 
+## Additional Professional Libraries
+
+### Node-Based Editors & Flow Diagrams
+
+#### 12. React Flow (@xyflow/react)
+- **GitHub**: [xyflow/xyflow](https://github.com/xyflow/xyflow) -- 35,963 stars
+- **Rendering**: SVG + HTML (DOM-based nodes)
+- **License**: MIT (with pro features under paid license)
+
+**The most popular node-based editor library.** Not a traditional graph analytics tool, but essential for building interactive flow diagrams, pipelines, and workflow editors.
+
+Features:
+- Drag-and-drop node creation
+- Custom node and edge types (render any React component as a node)
+- Multiple edge types (bezier, step, smoothstep, straight)
+- Nested/grouped sub-flows
+- Minimap, controls, background grid
+- Copy/paste, undo/redo
+- Viewport controls (zoom, pan, fit)
+- Touch/mobile support
+- Fully controlled or uncontrolled mode
+- Handles (connection ports on nodes)
+- Auto-layout integration via dagre/elkjs
+
+```bash
+npm install @xyflow/react
+# For auto-layout
+npm install @dagrejs/dagre  # or elkjs
+```
+
+Best for: **Workflow editors, pipeline builders, visual programming, node-based UIs (like n8n, Node-RED, Figma-style tools).**
+
+---
+
+#### 13. AntV X6
+- **GitHub**: [antvis/X6](https://github.com/antvis/X6) -- 6,513 stars
+- **Rendering**: SVG + HTML
+- **License**: MIT
+
+**Professional diagramming engine** from the Ant Group ecosystem. Think of it as an open-source alternative to JointJS/GoJS.
+
+Features:
+- Built-in graph editing: create, move, resize, rotate, connect nodes
+- 100+ built-in shapes (flowchart, UML, BPMN, ER diagram, circuit)
+- Ports (connection points) with validation rules
+- Hierarchical groups and embedding
+- Undo/redo, clipboard, snapline alignment
+- Grid snapping, scroller, minimap
+- Auto-layout algorithms (dagre, elk)
+- Edge routing (manhattan, metro, orth)
+- Custom rendering with React/Vue/Angular components inside nodes
+- Stencil panel (drag shapes from palette)
+- Export to SVG/PNG/JSON
+
+```bash
+npm install @antv/x6 @antv/x6-react-shape
+```
+
+Best for: **Diagramming applications (Visio alternatives), BPMN/flowchart editors, ER diagram tools.**
+
+---
+
+#### 14. Reaflow
+- **GitHub**: [reaviz/reaflow](https://github.com/reaviz/reaflow) -- 2,479 stars
+- **Rendering**: SVG
+- **License**: Apache 2.0
+
+Features:
+- Automatic layout via elkjs
+- Nested/compound nodes
+- Custom node/edge renderers (React components)
+- Port-based connections
+- Drag-and-drop, selection, undo/redo
+- Edge label support
+- Built for React (from the same team as Reagraph)
+
+```bash
+npm install reaflow
+```
+
+Best for: **Workflow/pipeline visualization with automatic layout, when you want something simpler than React Flow.**
+
+---
+
+### Geospatial Analytics
+
+#### 15. AntV L7
+- **GitHub**: [antvis/L7](https://github.com/antvis/L7) -- 3,980 stars
+- **Rendering**: WebGL
+- **License**: MIT
+
+**Large-scale geospatial data visualization engine.** The geographic counterpart to G6 in the Ant ecosystem.
+
+Features:
+- Point, line, polygon, heatmap, hexbin, arc, trip, wind layers
+- 3D extrusion, building rendering
+- GPU-accelerated rendering for millions of data points
+- Mapbox GL, Google Maps, AMap base map support
+- Spatial analysis (buffer, voronoi, kriging, IDW interpolation)
+- Animated layers (trip, flow, scatter pulse)
+- Custom shaders
+
+```bash
+npm install @antv/l7 @antv/l7-react
+```
+
+Best for: **Large-scale geospatial analytics, location intelligence dashboards, urban data visualization.**
+
+---
+
+### Tabular / Pivot Analytics
+
+#### 16. AntV S2
+- **GitHub**: [antvis/S2](https://github.com/antvis/S2) -- 1,675 stars
+- **Rendering**: Canvas
+- **License**: MIT
+
+**Spreadsheet-style pivot table and cross-tab visualization engine.**
+
+Features:
+- Pivot table (cross-tab) with drill-down
+- Table/sheet mode and tree hierarchy mode
+- Conditional formatting (data bars, color scales, icon sets)
+- Mini charts inside cells (sparklines, bullet charts, progress bars)
+- Frozen rows/columns
+- Custom cell renderers
+- Adaptive layout
+- High performance (Canvas rendering, handles 100k+ cells)
+- Tooltip, sort, filter, copy/export
+
+```bash
+npm install @antv/s2 @antv/s2-react
+```
+
+Best for: **Pivot tables, spreadsheet analytics, BI-style tabular reports.**
+
+---
+
+### Data Streaming & Real-Time Analytics
+
+#### 17. Semiotic
+- **GitHub**: [nteract/semiotic](https://github.com/nteract/semiotic) -- 2,578 stars
+- **Rendering**: SVG
+- **License**: Apache 2.0
+
+**React data visualization framework with built-in MCP server for AI-assisted chart generation.**
+
+Features:
+- Network frames (force, sankey, arc, chord, adjacency matrix)
+- XY frames (line, area, scatter, bar, point density, contour)
+- Ordinal frames (bar, timeline, swarm, violin, ridgeline, waterfall)
+- Annotation layer (callouts, highlights, enclose)
+- Responsive containers
+- Data streaming support
+- Brushing and filtering
+- MCP server for AI agent integration
+
+```bash
+npm install semiotic
+```
+
+Best for: **Exploratory data analysis, when you want network + standard charts in one API, AI-assisted chart generation.**
+
+---
+
+### Financial / Time Series Charts
+
+#### 18. TradingView Lightweight Charts
+- **GitHub**: [tradingview/lightweight-charts](https://github.com/tradingview/lightweight-charts) -- 14,240 stars
+- **Rendering**: Canvas
+- **License**: Apache 2.0
+
+Features:
+- Candlestick, bar, line, area, histogram, baseline charts
+- Real-time streaming data
+- Time scale with timezone support
+- Crosshair, price lines, markers
+- Multiple panes and series
+- Lightweight (45kb gzipped)
+- GPU-accelerated canvas rendering
+
+```bash
+npm install lightweight-charts
+```
+
+Best for: **Financial dashboards, stock/crypto charts, real-time time series.**
+
+---
+
+### General Purpose Charts (Additional)
+
+#### 19. Chart.js + react-chartjs-2
+- **GitHub**: [chartjs/Chart.js](https://github.com/chartjs/Chart.js) -- 67,329 stars
+- **Rendering**: Canvas
+- **License**: MIT
+
+The most popular charting library overall. Simple, fast, Canvas-based.
+
+Chart types: line, bar, radar, doughnut, pie, polar area, bubble, scatter
+
+```bash
+npm install chart.js react-chartjs-2
+```
+
+---
+
+#### 20. ApexCharts + react-apexcharts
+- **GitHub**: [apexcharts/apexcharts.js](https://github.com/apexcharts/apexcharts.js) -- 15,089 stars
+- **Rendering**: SVG
+- **License**: MIT
+
+Modern, interactive charts with built-in features that require plugins in other libraries.
+
+Chart types: line, area, bar, column, mixed, range bar (Gantt), timeline, candlestick, boxplot, heatmap, treemap, pie, radial, radar, polar, scatter, bubble, slope, funnel, pyramid
+
+Features:
+- Built-in annotations, zoom, pan, data labels
+- Real-time data updates
+- Synchronized charts (linked axes)
+- Dark mode
+- Localization support
+- Toolbar (zoom, pan, reset, download)
+
+```bash
+npm install apexcharts react-apexcharts
+```
+
+---
+
+#### 21. Carbon Charts (IBM)
+- **GitHub**: [carbon-design-system/carbon-charts](https://github.com/carbon-design-system/carbon-charts) -- 1,025 stars
+- **Rendering**: SVG (via D3)
+- **License**: Apache 2.0
+
+IBM's enterprise charting library built on the Carbon Design System.
+
+Chart types: line, area, bar, grouped bar, stacked bar, scatter, bubble, pie, donut, gauge, meter, treemap, circle pack, network, alluvial, wordcloud, radar, heatmap, combo, histogram, lollipop, bullet, boxplot, thematic map, choropleth
+
+```bash
+npm install @carbon/charts-react
+```
+
+Best for: **Enterprise IBM/Carbon Design System projects, when you want design-system-aligned charts.**
+
+---
+
+#### 22. Tremor
+- **GitHub**: [tremorlabs/tremor](https://github.com/tremorlabs/tremor) -- 3,351 stars
+- **Rendering**: SVG (built on Recharts internally)
+- **License**: Apache 2.0
+
+**Dashboard component library** with pre-built chart + UI components. Tailwind CSS based.
+
+Components: area chart, bar chart, line chart, donut chart, scatter chart, funnel chart, tracker, category bar, delta bar, progress bar, spark chart, number, badge delta, KPI cards, tables, lists
+
+```bash
+npm install @tremor/react
+```
+
+Best for: **Rapid dashboard building with Tailwind CSS, when you want pre-styled analytics components out of the box.**
+
+---
+
+### Dashboard Layout
+
+#### 23. react-grid-layout
+- **GitHub**: [react-grid-layout/react-grid-layout](https://github.com/react-grid-layout/react-grid-layout) -- 22,162 stars
+- **License**: MIT
+
+**Draggable, resizable grid layout for building dashboard shells.** Not a chart library, but essential for building analytics dashboards.
+
+Features:
+- Drag-and-drop widget repositioning
+- Resize handles
+- Responsive breakpoints
+- Serializable layout (save/load dashboard configs)
+- Static widgets (non-draggable)
+- Bounded containers
+
+```bash
+npm install react-grid-layout
+```
+
+Best for: **Building the dashboard container that holds your charts/graphs.**
+
+---
+
+## Extended Comparison Matrix
+
+| Library | Stars | Type | Network Graph | Charts | 3D | Geo/Maps | Tables | Flow/Diagram | Performance |
+|---|---|---|---|---|---|---|---|---|---|
+| **AntV G6 + Graphin** | 12k | Graph | Full | No | No | No | No | No | 10k+ nodes |
+| **Cytoscape.js** | 11k | Graph | Full | No | No | No | No | No | 10k+ nodes |
+| **Sigma.js + Graphology** | 12k | Graph | Full | No | No | No | No | No | 100k+ nodes |
+| **react-force-graph** | 3k | Graph | Full | No | 3D/VR/AR | No | No | No | 5k nodes |
+| **Reagraph** | 1k | Graph | Full | No | WebGL 3D | No | No | No | 5k nodes |
+| **React Flow (@xyflow)** | 36k | Flow | Partial | No | No | No | No | Full | 10k+ nodes |
+| **AntV X6** | 7k | Diagram | Partial | No | No | No | No | Full | 10k+ nodes |
+| **Reaflow** | 2.5k | Flow | Partial | No | No | No | No | Full | 1k nodes |
+| **Apache ECharts** | 66k | Charts | Built-in | 40+ | echarts-gl | GeoJSON | No | No | 1M+ points |
+| **Plotly.js** | 18k | Charts | Partial | 50+ | Native | Mapbox | No | No | 1M+ (WebGL) |
+| **Chart.js** | 67k | Charts | No | 8 | No | No | No | No | Medium |
+| **Recharts** | 27k | Charts | No | 12+ | No | No | No | No | Medium |
+| **visx** | 21k | Charts | @visx/network | 30+ pkg | No | @visx/geo | No | No | Medium |
+| **Nivo** | 14k | Charts | @nivo/network | 30+ | No | @nivo/geo | No | No | Medium |
+| **ApexCharts** | 15k | Charts | No | 20+ | No | No | No | No | Medium |
+| **Victory** | 11k | Charts | No | 12+ | No | No | No | No | Medium |
+| **Semiotic** | 2.6k | Charts | Network frames | 15+ | No | No | No | No | Medium |
+| **Carbon Charts** | 1k | Charts | network/alluvial | 20+ | No | choropleth | No | No | Medium |
+| **Tremor** | 3.4k | Dashboard | No | 8+ | No | No | tables | No | Medium |
+| **Lightweight Charts** | 14k | Financial | No | 5 | No | No | No | No | High (Canvas) |
+| **AntV L7** | 4k | Geo | No | No | 3D extrude | Full | No | No | Millions |
+| **AntV S2** | 1.7k | Tables | No | sparklines | No | No | Full (pivot) | No | 100k+ cells |
+| **react-grid-layout** | 22k | Layout | No | No | No | No | No | No | N/A |
+
 ## Recommended Combinations
 
 ### For Full Network Graph Analytics + Dashboard Charts
