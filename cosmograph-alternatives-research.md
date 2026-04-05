@@ -429,3 +429,371 @@ function App() {
 ```
 
 This gives you a Cosmograph-like experience with WebGL rendering, force layout, community detection, centrality-based sizing, search, and zoom -- all open source.
+
+---
+
+## Advanced Alternatives: Enterprise-Grade & Specialized
+
+### 10. Neo4j Visualization Library (NVL) -- Graph Database Native
+
+- **npm**: `@neo4j-nvl/react` + `@neo4j-nvl/base`
+- **GitHub**: neo4j (818 stars for browser)
+- **Rendering**: WebGL + Canvas
+- **License**: Free to use with Neo4j
+- **Last updated**: 2026-03-31
+
+**The official graph visualization library from Neo4j**, the world's most popular graph database. If your data lives in Neo4j, this is the most integrated option.
+
+Features:
+- Native Cypher query integration (run queries, visualize results)
+- Schema-aware visualization (respects node labels and relationship types)
+- Force-directed layout with incremental expansion
+- Node/relationship styling by property values
+- Double-click to expand neighborhoods
+- Hover tooltips with property details
+- Rule-based styling (conditional formatting)
+- Zoom, pan, fit-to-screen
+- Selection, multi-select, lasso
+- Built for React
+
+```bash
+npm install @neo4j-nvl/react @neo4j-nvl/base neo4j-driver
+```
+
+```tsx
+import { InteractiveNvlWrapper } from '@neo4j-nvl/react';
+import neo4j from 'neo4j-driver';
+
+// Query Neo4j and visualize
+const driver = neo4j.driver('neo4j://localhost', neo4j.auth.basic('neo4j', 'password'));
+const session = driver.session();
+const result = await session.run('MATCH (n)-[r]->(m) RETURN n, r, m LIMIT 100');
+
+<InteractiveNvlWrapper
+  nodes={nodes}
+  rels={relationships}
+  nvlOptions={{ layout: 'force-directed' }}
+/>
+```
+
+Best for: **When your graph data is in Neo4j and you want zero-friction visualization. Strongest for knowledge graphs, fraud detection, recommendation engines.**
+
+---
+
+### 11. Linkurious Ogma (Enterprise WebGL Engine)
+
+- **npm**: `@linkurious/ogma-react`
+- **Rendering**: WebGL
+- **License**: Commercial (free for non-commercial use)
+- **Last updated**: 2026-03-20
+
+**The most feature-rich commercial graph visualization library.** Ogma is what powers Linkurious Enterprise, used by Interpol, Europol, and major banks for fraud investigation.
+
+Features beyond Cosmograph:
+- GPU-accelerated WebGL rendering (500k+ nodes)
+- 20+ layout algorithms (force, hierarchical, radial, concentric, sequential, geographic, etc.)
+- **Geo mode** (plot nodes on a map with Leaflet/Mapbox integration)
+- **Grouping / aggregation** (collapse clusters into super-nodes)
+- Edge bundling, curved edges, parallel edges
+- Node/edge filtering with animated transitions
+- **Lasso selection**, rectangle selection, marquee
+- **Shortest path highlighting** with animated traversal
+- **Rule-based styling engine** (conditional node/edge appearance)
+- Text search across all properties
+- Minimap, navigator, overview
+- Undo/redo
+- Export to PNG, SVG, JSON, GEXF, GraphML
+- **Virtual nodes** (nodes that exist visually but not in data)
+- Plugin architecture
+- React wrapper with hooks
+
+```bash
+npm install @linkurious/ogma @linkurious/ogma-react
+```
+
+Best for: **Enterprise graph investigation (fraud, cybersecurity, intelligence), when you need the most polished UX and are OK with a commercial license for production.**
+
+---
+
+### 12. Rete.js (Visual Programming / Node Editor)
+
+- **GitHub**: [retejs/rete](https://github.com/retejs/rete) -- 11,980 stars
+- **Rendering**: HTML + SVG (React/Vue/Angular/Svelte renderers)
+- **License**: MIT
+
+**A framework for building visual programming interfaces**, like Unreal Engine Blueprints, ComfyUI, or Blender's node editor.
+
+Features:
+- Dataflow and control flow graph execution
+- Type-safe connections (typed input/output sockets)
+- Minimap, reroute pins, auto-arrange
+- Zoom, pan, selection
+- Connection validation rules
+- Custom node UI (render any React component)
+- Undo/redo
+- Import/export JSON
+- Plugin system
+- Built-in layout via elk.js
+
+```bash
+npm install rete rete-react-plugin rete-area-plugin rete-connection-plugin rete-render-utils
+```
+
+Best for: **Building visual programming tools, AI/ML pipeline editors, shader editors, automation workflow builders.**
+
+---
+
+### 13. LiteGraph.js (GPU Node Graph Engine)
+
+- **GitHub**: [jagenjo/litegraph.js](https://github.com/jagenjo/litegraph.js) -- 7,955 stars
+- **Rendering**: HTML5 Canvas
+- **License**: MIT
+
+**Canvas-based node graph editor and runtime engine**, similar to what powers ComfyUI (Stable Diffusion). Includes a graph execution engine, not just visualization.
+
+Features:
+- Graph execution engine (nodes process data in real-time)
+- Built-in node types: math, logic, audio, MIDI, WebGL
+- Subgraph support (graphs within graphs)
+- Live data preview on connections
+- Custom widgets inside nodes (sliders, dropdowns, color pickers)
+- Search bar for adding nodes
+- Group boxes
+- Serialization to/from JSON
+- Very fast Canvas rendering
+
+```bash
+npm install litegraph.js
+```
+
+Best for: **Real-time signal processing, audio/visual pipelines, shader graphs, AI workflow editors (like ComfyUI).**
+
+---
+
+### 14. vis-network (Mature Graph Visualization)
+
+- **GitHub**: [visjs/vis-network](https://github.com/visjs/vis-network) -- 3,545 stars
+- **Rendering**: Canvas + HTML
+- **License**: Apache 2.0
+
+The continuation of the original vis.js library. Mature, battle-tested, widely used.
+
+Features:
+- Force-directed, hierarchical, user-defined layouts
+- Clustering (visual grouping of nodes)
+- Physics engine (Barnes-Hut, repulsion, force-directed)
+- Edge types: dynamic, continuous, discrete, cubicBezier
+- Shadow, dashes, arrows, labels
+- Groups and group styling
+- Navigation buttons, keyboard navigation
+- Manipulation mode (add/edit/delete nodes and edges interactively)
+- Hierarchical layout (tree structures)
+- Configure panel (live settings editor)
+- Handles thousands of nodes
+
+```bash
+npm install vis-network vis-data
+```
+
+Best for: **Quick prototyping, when you need a stable library with good documentation and don't need WebGL performance.**
+
+---
+
+### 15. GoJS (Enterprise Diagramming)
+
+- **GitHub**: [NorthwoodsSoftware/GoJS](https://github.com/NorthwoodsSoftware/GoJS) -- 8,423 stars
+- **Rendering**: Canvas + SVG
+- **License**: Commercial (free for evaluation/development)
+
+**The most complete diagramming SDK.** Powers Lucidchart-style applications.
+
+Features beyond any open-source option:
+- 150+ interactive sample diagrams
+- Force-directed, tree, layered-digraph, circular, grid layouts
+- Swimlanes, groups, subgraphs
+- Link routing (orthogonal, AvoidsNodes, Bezier)
+- Real-time collaboration support
+- Undo/redo, copy/paste, drag-and-drop from palette
+- Data binding (model-view separation)
+- Overview panel, context menus
+- Export to SVG, PNG, PDF
+- Built-in React component
+- Excellent documentation
+- Virtualization (render only visible nodes for huge diagrams)
+
+```bash
+npm install gojs gojs-react
+```
+
+Best for: **Commercial diagramming apps, flowchart builders, org charts, floor plans, BPMN, when you need the most polished out-of-box experience.**
+
+---
+
+### 16. JointJS / Rappid (Open-Source Diagramming)
+
+- **GitHub**: [clientIO/joint](https://github.com/clientIO/joint) -- 5,227 stars
+- **Rendering**: SVG
+- **License**: MPL-2.0 (open-source core), commercial for Rappid
+
+Features:
+- Built-in shapes: flowchart, UML, BPMN, ER diagram, Petri net, logic circuits
+- Custom shapes via SVG markup
+- Link routing (manhattan, metro, orthogonal)
+- Port-based connections with validation
+- Hierarchical groups and embedding
+- Built-in paper scroller, minimap, navigator
+- Undo/redo, clipboard, selection
+- Import/export to JSON
+- Rappid (commercial) adds: stencil, inspector, toolbar, keyboard shortcuts
+
+```bash
+npm install jointjs
+```
+
+Best for: **Open-source diagramming applications, UML/BPMN editors, when you need SVG-based rendering.**
+
+---
+
+### 17. maxGraph (Open-Source mxGraph Successor)
+
+- **GitHub**: [maxGraph/maxGraph](https://github.com/maxGraph/maxGraph) -- 1,104 stars
+- **Rendering**: SVG + HTML
+- **License**: Apache 2.0
+
+The open-source continuation of mxGraph (which powered draw.io / diagrams.net). Fully rewritten in TypeScript.
+
+Features:
+- Hierarchical, organic, circle, tree, compact tree, partition, stack layouts
+- Swimlanes, layers, groups
+- Edge routing (orthogonal, entity-relation)
+- Cell folding (expand/collapse groups)
+- Connection constraints and validation
+- Stencils (shape libraries)
+- XML-based graph serialization
+- Undo/redo, clipboard
+- Customizable selection, rubberband
+- Overlay badges on nodes
+
+```bash
+npm install @maxgraph/core
+```
+
+Best for: **Building draw.io-like diagramming tools, when you want the mxGraph architecture in modern TypeScript.**
+
+---
+
+### 18. Flume (React Node Editor for Business Logic)
+
+- **GitHub**: [chrisjpatty/flume](https://github.com/chrisjpatty/flume) -- 1,616 stars
+- **Rendering**: HTML + SVG (React)
+- **License**: MIT
+
+**Purpose-built React node editor for extracting business logic.** Unlike generic graph editors, Flume is designed for non-developers to build logic flows.
+
+Features:
+- Type-safe ports with color coding
+- Root node engine (resolve logic graphs to values)
+- Built-in port types: string, number, boolean, custom
+- Dynamic ports (add/remove based on configuration)
+- Comments on nodes
+- Built entirely in React (no Canvas dependency)
+
+```bash
+npm install flume
+```
+
+Best for: **Business rule engines, form builders, pricing calculators, when non-technical users need to configure logic visually.**
+
+---
+
+### Layout Algorithm Libraries (Pair With Any Renderer)
+
+These are standalone layout engines you can combine with any graph renderer:
+
+| Library | Stars | Algorithm | Best For |
+|---|---|---|---|
+| **elkjs** | (Eclipse) | Sugiyama/layered, force, tree, radial, stress | Most advanced automatic layout, port-aware |
+| **@dagrejs/dagre** | 5,586 | Sugiyama/layered | DAG/tree layout, simple API |
+| **d3-dag** | 1,506 | Sugiyama, Zherebko, topological | DAG layout with D3 integration |
+| **webcola** | 2,090 | Constraint-based, force-directed | Constraints (alignment, grouping, non-overlap) |
+| **d3-force** | (D3) | Velocity Verlet force simulation | Classic force-directed (d3 ecosystem) |
+| **graphology-layout-forceatlas2** | (Graphology) | ForceAtlas2 (Gephi's algorithm) | Large-scale force layout in Web Worker |
+
+```bash
+# Install layout engines
+npm install elkjs                              # Most powerful
+npm install @dagrejs/dagre @dagrejs/graphlib   # Simple DAG layout
+npm install d3-dag                             # DAG + D3
+npm install webcola                            # Constraint-based
+```
+
+---
+
+### Graph Databases (Backend for Graph Analytics)
+
+If you need serious graph analytics beyond what client-side JavaScript can handle, pair your visualization with a graph database:
+
+| Database | Stars | License | Query Language | Best For |
+|---|---|---|---|---|
+| **Neo4j** | 16k | GPL-3.0 (Community) | Cypher | Most popular, richest ecosystem, ACID |
+| **Dgraph** | 22k | Apache 2.0 | GraphQL/DQL | Distributed, native GraphQL |
+| **ArangoDB** | 14k | Business Source | AQL | Multi-model (graph + document + key-value) |
+| **JanusGraph** | 5.8k | Apache 2.0 | Gremlin/TinkerPop | Distributed, pluggable storage (Cassandra/HBase) |
+| **OrientDB** | 5k | Apache 2.0 | SQL-like + Gremlin | Multi-model with SQL compatibility |
+
+---
+
+## Ultimate Feature Comparison (All 18 Libraries)
+
+| Library | Stars | Rendering | Max Nodes | React | Graph Algorithms | Diagram/Flow | Visual Programming | Geo/Map | License |
+|---|---|---|---|---|---|---|---|---|---|
+| **Sigma+Graphology** | 12k+1.6k | WebGL | 100k+ | @react-sigma | Full (50+ plugins) | No | No | No | MIT |
+| **G6+Graphin** | 12k+1k | Canvas/WebGL | 50k | @antv/graphin | Full (built-in) | No | No | No | MIT |
+| **Cytoscape.js** | 11k | Canvas | 30k | react-cytoscapejs | Most extensive | No | No | No | MIT |
+| **react-force-graph** | 3k+6k | Canvas/WebGL | 20k | Native | Basic | No | No | No | MIT |
+| **Reagraph** | 1k | WebGL (R3F) | 10k | Native | Basic | No | No | No | Apache 2.0 |
+| **Gephi Lite** | 315 | WebGL | 100k+ | No | ForceAtlas2+metrics | No | No | No | GPL-3.0 |
+| **Graphistry** | 2.5k | WebGL (GPU) | 10M+ | Client API | GPU-accelerated | No | No | No | BSD-3 |
+| **Memgraph Orb** | 418 | Canvas/WebGL | 10k | No | Via Memgraph DB | No | No | No | Apache 2.0 |
+| **VivaGraphJS** | 3.9k | SVG/WebGL | 50k | No | ngraph plugins | No | No | No | MIT |
+| **Neo4j NVL** | -- | WebGL | 30k | @neo4j-nvl/react | Via Neo4j DB | No | No | No | Free w/Neo4j |
+| **Ogma (Linkurious)** | -- | WebGL | 500k+ | @linkurious/ogma-react | Built-in + geo | No | No | Yes | Commercial |
+| **React Flow** | 36k | SVG/HTML | 10k+ | Native | No | Full | No | No | MIT |
+| **Rete.js** | 12k | HTML/SVG | 5k | Plugin | No | Full | Full | No | MIT |
+| **LiteGraph.js** | 8k | Canvas | 5k | No | Graph execution | Full | Full | No | MIT |
+| **vis-network** | 3.5k | Canvas | 5k | Manual | Basic | No | No | No | Apache 2.0 |
+| **GoJS** | 8.4k | Canvas/SVG | 10k+ | gojs-react | No | Full | No | No | Commercial |
+| **JointJS** | 5.2k | SVG | 5k | No | No | Full | No | No | MPL-2.0 |
+| **maxGraph** | 1.1k | SVG/HTML | 5k | No | No | Full | No | No | Apache 2.0 |
+| **Flume** | 1.6k | HTML/SVG | 1k | Native | Logic resolver | Full | Yes | No | MIT |
+
+---
+
+## Decision Tree
+
+```
+What do you need?
+|
+|-- Graph ANALYTICS (algorithms, metrics, community detection)?
+|   |-- Need 100k+ nodes? --> Sigma.js + Graphology
+|   |-- Need all-in-one? --> AntV G6 + Graphin
+|   |-- Need most algorithms? --> Cytoscape.js
+|   |-- Need 1M+ nodes? --> Graphistry (GPU server)
+|   |-- Need graph DB integration? --> Neo4j NVL + Neo4j
+|
+|-- Graph VISUALIZATION (interactive exploration)?
+|   |-- Need 3D/VR/AR? --> react-force-graph
+|   |-- Need React-native DX? --> Reagraph
+|   |-- Need no-code? --> Gephi Lite
+|   |-- Enterprise (500k+ nodes)? --> Ogma (commercial)
+|
+|-- FLOW DIAGRAMS / NODE EDITORS?
+|   |-- Workflow/pipeline builder? --> React Flow (@xyflow)
+|   |-- Diagramming app (Visio-like)? --> AntV X6 or GoJS
+|   |-- Visual programming (Blueprints)? --> Rete.js or LiteGraph.js
+|   |-- Business logic editor? --> Flume
+|   |-- Open-source draw.io? --> maxGraph
+|
+|-- Need BOTH charts AND graphs?
+|   --> Apache ECharts (has built-in graph type) + Cytoscape/G6 for advanced analytics
+```
